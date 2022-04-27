@@ -28,6 +28,13 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  
+  for(let prop in obj){
+    obj[prop] = obj[prop].trim()
+  }
+  return obj 
+
+  
 }
 
 /**
@@ -40,6 +47,14 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
+  let largest = 0
+  for(let i = 0; i < integers.length; i++){
+    if(integers[i] > largest){
+      largest = integers[i].integer; 
+    }
+    return largest 
+  }  
+  
 }
 
 class Counter {
@@ -49,6 +64,7 @@ class Counter {
    */
   constructor(initialNumber) {
     // ✨ initialize whatever properties are needed
+    this.count = initialNumber; 
   }
 
   /**
@@ -65,6 +81,7 @@ class Counter {
    */
   countDown() {
     // ✨ implement
+    return this.count > 0 ? this.count-- : 0
   }
 }
 
@@ -74,6 +91,8 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = ['winter', 'spring', 'summer', 'fall']; 
+    this.currentSeason = 0
   }
 
   /**
@@ -90,6 +109,14 @@ class Seasons {
    */
   next() {
     // ✨ implement
+    let currentSeason = this.seasons[this.currentSeason] 
+    if(currentSeason === 3){
+      return this.currentSeason = 0
+    }
+    else {
+      this.currentSeason++
+      return currentSeason
+    }
   }
 }
 
@@ -121,6 +148,9 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    for(let d in distance){
+      this.odometer += d
+    }
   }
 
   /**
