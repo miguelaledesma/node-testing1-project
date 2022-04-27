@@ -91,7 +91,7 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
-    this.seasons = ['winter', 'spring', 'summer', 'fall']; 
+    this.seasons = ['summer', 'fall', 'winter', 'spring']; 
     this.currentSeason = 0
   }
 
@@ -109,14 +109,15 @@ class Seasons {
    */
   next() {
     // ✨ implement
-    let currentSeason = this.seasons[this.currentSeason] 
-    if(currentSeason === 3){
-      return this.currentSeason = 0
+    const currentSeason = this.seasons[this.currentSeason] 
+    if(this.currentSeason === 3){
+      this.currentSeason = 0
     }
     else {
-      this.currentSeason++
-      return currentSeason
+      ++this.currentSeason
+      
     }
+    return currentSeason
   }
 }
 
