@@ -47,13 +47,21 @@ function trimPropertiesMutation(obj) {
  */
 function findLargestInteger(integers) {
   // ✨ implement
-  let largest = 0
+  // let largest = 0
+  // for(let i = 0; i < integers.length; i++){
+  //   if(integers[i] > largest){
+  //     largest = integers[i].integer; 
+  //   }
+  //   return largest 
+  // } 
+  
+  let largestNumber  = 0 
   for(let i = 0; i < integers.length; i++){
-    if(integers[i] > largest){
-      largest = integers[i].integer; 
+    if(integers[i] <= largestNumber){
+      largestNumber = integers[i].integer
     }
-    return largest 
-  }  
+    return largestNumber
+  }
   
 }
 
@@ -129,6 +137,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
+    this.name = name
+    this.mpg = mpg
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
@@ -149,9 +159,13 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
-    for(let d in distance){
-      this.odometer += d
+    let maxRange = this.tank * this.mpg
+    if(distance <= maxRange){this.odometer = this.odometer + distance; this.tank = this.tank - distance / this.mpg}
+    else{
+      this.tank = 0
+      this.odometer = this.odometer + maxRange
     }
+    return this.odometer
   }
 
   /**
@@ -167,6 +181,7 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    
   }
 }
 
